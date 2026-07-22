@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>
+        Academic Notes Organizer
+    </h1>
+    <p>
+        organize and manage your academic sources
+    </p>
+    <a href="#" class="btn">
+        Get Started
+    </a>
+</section>
+{% endblock %}
