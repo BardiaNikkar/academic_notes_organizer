@@ -1,0 +1,89 @@
+/* use chatgpt for design this page */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary:#3B7D5A;
+    --primary-hover:#4C8D6A;
+    --background:#F8FAF9;
+    --surface:#FFFFFF;
+    --light-green:#EAF5EE;
+    --text:#2D3748;
+    --text-light:#718096;
+    --shadow:0 8px 25px rgba(0, 0, 0, .05);
+}
+
+body{
+    font-family: "segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+header{
+    background: white;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+}
+
+nav{
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a{
+    text-decoration: none;
+    color: var(--primary);
+    font-size: 26px;
+    font-weight: 700;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a{
+    text-decoration: none;
+    color: var(--text);
+    transition: .3s;
+}
+
+nav a:hover{
+    color: var(--primary);
+}
+
+.btn{
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 12px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.btn:hover{
+    background: var(--primary-hover);
+}
+
+footer{
+    margin-top: 100px;
+    padding: 30px;
+    text-align: center;
+    color: var(--text-light);
+}
