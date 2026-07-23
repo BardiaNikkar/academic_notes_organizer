@@ -15,11 +15,12 @@
     --text:#2D3748;
     --text-light:#718096;
     --shadow:0 8px 25px rgba(0, 0, 0, .05);
+    --ngreen:#b5e3c3;
 }
 
 body{
     font-family: "segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--background);
+    background: var(--ngreen);
     color: var(--text);
     line-height: 1.7;
 }
@@ -31,7 +32,7 @@ body{
 }
 
 header{
-    background: white;
+    background: aliceblue;
     box-shadow: var(--shadow);
     position: sticky;
     top: 0;
