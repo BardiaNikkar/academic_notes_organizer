@@ -18,23 +18,23 @@ Login
         <p class="subtitle">
             sign in to continue your management
         </p>
-        <form action="">
+        <form action="" method="POST">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="username">Username</label>
-                <input 
-                type="text"
-                id="username"
-                placeholder="Enter your username"
-                >
+                {{ form.username }}
+                {{ form.username.errors }}
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input 
-                type="password" 
-                name="password" 
-                placeholder="Enter your password"
-                >
+                {{ form.password }}
+                {{ form.password.errors }}
             </div>
+            {% if form.non_field_errors %}
+            <div class="errorlist">
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
             <button class="btn" type="submit">Login</button>
         </form>
         <p class="register-link">
