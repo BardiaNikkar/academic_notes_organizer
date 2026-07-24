@@ -21,20 +21,24 @@ Register
             <div class="form-group">
                 <label for="username">Username</label>
                 {{ form.username }}
+                {{ form.username.errors }}
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 {{ form.email }}
+                {{ form.email.errors}}
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                {{ form.password1}}
+                {{ form.password1 }}
+                {{ form.password1.errors }}
             </div>
             <div class="form-group">
                 <label for="confirm-password">Confirm Password</label>
                 {{ form.password2 }}
+                {{ form.password2.errors }}
             </div>
-            <button class="btn">
+            <button class="btn" type="submit">
                 Register
             </button>
         </form>
