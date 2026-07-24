@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block exttra_css %}
+<link rel="stylesheet" href="static 'css/dashboard.css' ">
+{% endblock %}
+
+{% block content %}
+<section class="dashboard">
+    <h1>Welcome, {{ user.username }} 👋</h1>
+    <p>This is your personal dashboard</p>
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>courses</h3>
+            <p>0</p>
+        </div>
+        <div class="card">
+            <h3>notes</h3>
+            <p>0</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
