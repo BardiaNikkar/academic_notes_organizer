@@ -22,7 +22,7 @@ My Courses
             <h2>{{ course.title }}</h2>
             <p>{{ course.description }}</p>
             <div class="course-actions">
-                <a href="#" class="edit-btn">Edit</a>
+                <a href="{% url 'course_update' course.pk %}" class="edit-btn">Edit</a>
                 <a href="#" class="delete-btn">Delete</a>
             </div>
         </div>

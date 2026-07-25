@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Update Course
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/course.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="course-container">
+    <h1 class="course-title">Update Course</h1>
+    <form action="" method="post" class="course-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="btn">Save Changes</button>
+    </form>
+</section>
+{% endblock %}
