@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import NoteForm
+from .models import Note
 from courses.models import Course
 
 # Create your views here.
@@ -20,4 +21,10 @@ def create_note(request):
             form = NoteForm()
             form.fields['course'].queryset = Course.objects.filter(user=request.user)
     return render(request, 'notes/note_create.html', {'form':form})
-    
+
+@login_required
+def note_list(request):
+     notes = Note.objects.filter(user=request.user).select_related('course').order_by('-created_at')
+     return render(request, 'notes/note_list.html', {'notes':notes})
+
+
