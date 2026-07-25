@@ -26,7 +26,7 @@ My Notes
             </p>
             <p>{{ note.content|truncatewords:20 }}</p>
             <div class="course-actions">
-                <a href="#" class="edit0btn">Edit</a>
+                <a href="{% url 'note_update' note.pk %}" class="edit0btn">Edit</a>
                 <a href="#" class="delete-btn">Delete</a>
             </div>
         </div>

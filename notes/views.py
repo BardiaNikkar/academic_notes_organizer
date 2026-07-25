@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import NoteForm
 from .models import Note
@@ -27,4 +27,17 @@ def note_list(request):
      notes = Note.objects.filter(user=request.user).select_related('course').order_by('-created_at')
      return render(request, 'notes/note_list.html', {'notes':notes})
 
+@login_required
+def update_note(request, pk):
+    note = get_object_or_404(Note, pk=pk, user=request.user)
+    if request.method == "POST":
+        form = NoteForm(request.POST, instance=note)
+        form.fields['course'].queryset = Course.objects.filter(user=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('note_list')
+    else:
+        form = NoteForm(instance=note)
+        form.fields['course'].query = Course.objects.filter(user=request.user)
+    return render(request, 'notes/note_update.html', {'form':form, 'note':note})
 
