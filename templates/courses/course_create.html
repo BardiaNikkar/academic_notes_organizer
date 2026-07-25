@@ -10,10 +10,15 @@ Create Course
 {% endblock %}
 
 {% block content %}
-<form action="" method="post">
+<section class="course-container">
+    <h1 class="course-title">Create Course</h1>
+    <div class="course-card">
+<form action="" method="post"  class="course-form">
     {% csrf_token %}
     {{ form.as_p }}
 
-    <button type="submit">Save Course</button>
+    <button type="submit" class="btn">Save Course</button>
 </form>
+</div>
+</section>
 {% endblock %}
