@@ -41,3 +41,10 @@ def update_note(request, pk):
         form.fields['course'].query = Course.objects.filter(user=request.user)
     return render(request, 'notes/note_update.html', {'form':form, 'note':note})
 
+@login_required
+def delete_note(request, pk):
+     note = get_object_or_404(Note, pk=pk, user=request.user)
+     if request.method == "POST":
+          note.delete()
+          return redirect('note_list')
+     return render(request, 'notes/note_delete.html', {'note':note})
