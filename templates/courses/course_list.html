@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+My Courses
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/course.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="course-container">
+    <div class="page-header">
+        <h1 class="course-title">My Courses</h1>
+        <a href="{% url 'course_create' %}" class="btn">+ New Course</a>
+    </div>
+    {% if courses %}
+    <div class="course-list">
+        {% for course in courses %}
+        <div class="course-card">
+            <h2>{{ course.title }}</h2>
+            <p>{{ course.description }}</p>
+            <div class="course-action">
+                <a href="#">Edit</a>
+                <a href="#">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>you haven't created any courses yet.</p>
+    {% endif %}
+</section>
+{% endblock %}
