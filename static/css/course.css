@@ -1,0 +1,167 @@
+/* use chatgpt to create this page */
+
+.course-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.course-title {
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.course-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: .25s ease;
+}
+
+.course-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 18px rgba(74,124,89,.08);
+}
+
+
+/* ---------- Typography ---------- */
+
+.course-card h2 {
+    margin-bottom: .75rem;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.course-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.course-meta {
+    font-size: .9rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.course-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.course-actions a {
+    text-decoration: none;
+    padding: .45rem .9rem;
+    border-radius: 8px;
+    font-size: .9rem;
+    transition: .25s;
+}
+
+.edit-btn {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.edit-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.delete-btn {
+    color: #b54747;
+    border: 1px solid #b54747;
+}
+
+.delete-btn:hover {
+    background: #b54747;
+    color: white;
+}
+
+.course-form {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 2rem;
+}
+
+.course-form p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.course-form label {
+    margin-bottom: .45rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.course-form input,
+.course-form textarea,
+.course-form select {
+    width: 100%;
+    padding: .85rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: .95rem;
+    transition: .25s;
+    background: white;
+}
+
+.course-form input:focus,
+.course-form textarea:focus,
+.course-form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74,124,89,.12);
+}
+
+.course-form textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.course-form button {
+    margin-top: .5rem;
+}
+
+.empty-state {
+    background: white;
+    border: 1px dashed var(--border-color);
+    border-radius: 14px;
+    padding: 3rem;
+    text-align: center;
+}
+
+.empty-state p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .course-actions {
+        flex-direction: column;
+    }
+
+}
