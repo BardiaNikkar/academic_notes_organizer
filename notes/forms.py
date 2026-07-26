@@ -7,6 +7,7 @@ class NoteForm(forms.ModelForm):
         fields = [
             'course',
             'title',
-            'content'
+            'content',
+            'attachment',
         ]
         

@@ -30,6 +30,12 @@ Search Results
             <p>
                 {{ note.content|truncatewords:25 }}
             </p>
+            {% if note.attachment %}
+            <p>
+                📎
+                <a href="{{ note.attachment.url }}" target="_blank">Attachment</a>
+            </p>
+            {% endif %}
             <div class="course-actions">
             <a href="{% url 'note_update' note.pk %}" class="edit-btn">
                 Edit

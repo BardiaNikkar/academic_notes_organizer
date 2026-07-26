@@ -11,7 +11,7 @@ from django.db.models import Q
 @login_required
 def create_note(request):
     if request.method == 'POST':
-        form = NoteForm(request.POST)
+        form = NoteForm(request.POST, request.FILES)
         form.fields['course'].queryset = Course.objects.filter(user = request.user)
         if form.is_valid():
             note = form.save(commit=False)
