@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from courses.models import Course
+from notes.models import Note
 
 # Create your views here.
 def login_view(request):
@@ -31,4 +33,6 @@ def logout_view(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    courses = Course.objects.filter(user=request.user).prefetch_related('notes')
+    notes_count = Note.objects.filter(user=request.user).count()
+    return render(request, 'accounts/dashboard.html', {'courses':courses, 'notes_count': notes_count})

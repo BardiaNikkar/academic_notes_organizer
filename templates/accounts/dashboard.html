@@ -6,22 +6,40 @@ Dashboard
 {% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="static 'css/dashboard.css' ">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 {% endblock %}
 
 {% block content %}
-<section class="dashboard">
-    <h1>Welcome, {{ user.username }} 👋</h1>
-    <p>This is your personal dashboard</p>
-    <div class="dashboard-cards">
-        <div class="card">
-            <h3>courses</h3>
-            <p>0</p>
-        </div>
-        <div class="card">
-            <h3>notes</h3>
-            <p>0</p>
-        </div>
-    </div>
-</section>
+<div class="dashboard-container">
+<h1 class="dashboard-title">Dashboard</h1>
+<p class="dashboard-subtitle">Welcome, {{ user.username }} 👋</p>
+
+<div class="dashboard-actions">
+    <a href="{% url 'course_create' %}" class="btn">+ New Course</a>
+    <a href="{% url 'note_create' %}" class="btn">+ New Note</a>
+     <a href="{% url 'note_list' %}" class="btn">
+    Notes <h2>{{ notes_count }}</h2>
+    </a>
+    <a href="{% url 'course_list' %}" class="btn">
+    Courses <h2>{{ courses.count }}</h2>
+    </a>
+</div>
+</div>
+{% for course in courses %}
+    <details open>
+        <summary>
+            📚 {{ course.title }}
+            ({{ course.notes.count }})
+        </summary>
+        <ul class="note-list">
+            {% for note in course.notes.all %}
+                <li>📝 {{ note.title }}</li>
+            {% empty %}
+                <li class="empty-note">No notes yet.</li>
+            {% endfor %}
+        </ul>
+    </details>
+{% empty %}
+    <p>you don't have any courses </p>
+{% endfor %}   
 {% endblock %}
