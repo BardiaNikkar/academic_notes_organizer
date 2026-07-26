@@ -24,6 +24,14 @@ Dashboard
     Courses <h2>{{ courses.count }}</h2>
     </a>
 </div>
+<form action="{% url 'search_notes' %}" method="get" class="search-form">
+    <input type="text"
+    name="q"
+    placeholder="search notes..."
+    value="{{ request.GET.q }}"
+    >
+    <button type="submit" class="btn">Search</button>
+</form>
 </div>
 {% for course in courses %}
     <details open>

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Search Results
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/course.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="course-container">
+    <div class="page-header">
+        <h1 class="course-title">Search Results</h1>
+        <a href="{% url 'dashboard' %}" class="btn">Back to Dashboard</a>
+    </div>
+    <p>Search:
+        <strong>{{ query }}</strong>
+    </p>
+    {% if notes %}
+    <div class="course-list">
+        {% for note in notes %}
+        <div class="course-card">
+            <h2>{{ note.title }}</h2>
+            <p>
+                <strong>Course:</strong>
+                {{ note.course.title }}
+            </p>
+            <p>
+                {{ note.content|truncatewords:25 }}
+            </p>
+            <div class="course-actions">
+            <a href="{% url 'note_update' note.pk %}" class="edit-btn">
+                Edit
+            </a>
+
+            <a href="{% url 'note_delete' note.pk %}" class="delete-btn">
+                Delete
+            </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No notes found.</p>
+    {% endif %}
+</section>
+{% endblock %}

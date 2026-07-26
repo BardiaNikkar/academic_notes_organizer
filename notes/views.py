@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import NoteForm
 from .models import Note
 from courses.models import Course
+from django.db.models import Q
 
 # Create your views here.
 # to create this view function I got help from chatgpt
@@ -48,3 +49,14 @@ def delete_note(request, pk):
           note.delete()
           return redirect('note_list')
      return render(request, 'notes/note_delete.html', {'note':note})
+
+
+@login_required
+def search_notes(request):
+     query = request.GET.get('q', '')
+     notes = Note.objects.filter(user=request.user)
+     if query:
+          notes = notes.filter(Q(title__icontains=query) | Q(content__icontains=query))
+     notes =notes.select_related('course')
+     return render(request, 'notes/search_results.html', {'notes':notes, 'query':query})
+

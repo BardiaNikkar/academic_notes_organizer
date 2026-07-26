@@ -81,3 +81,17 @@ summary:hover{
     color:#6b7280;
     margin-top:40px;
 }
+
+.search_form{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.search_form input{
+    flex: 1;
+    padding: 12px;
+    border:1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+}
